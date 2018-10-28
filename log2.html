@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>Weather Log</title>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Spicy+Rice" rel="stylesheet"> 
+</head>
+<body id="main"  style="background-image: url(img/2.jpg)">
+    <center><h1 id="head">Weather Report System</h1></center>
+    <br>
+    <div class="container-fluid col-12">
+        <form class ="form" method = "POST" action ="display.php" onsubmit="return myFunction(this)">
+        <center>
+        <span id="from">From:</span><input type="date"  min="2018-08-18" max="2018-10-14" id="mindate" name="min"/><br><br>
+        <span id="to">To:</span><input type="date"  min="2018-08-18" max="2018-10-14" id="maxdate" name="max"/><br><br>
+        <span id="select">Select Category:</span>
+        <select name="type" id = "type" onchange="changebackground(this)" selected="Temperature">
+            <option value="Temperature">Temperature</option>
+            <option value="Relative_Humidity">Relative Humidity</option>
+            <option value="Pressure">Pressure</option>
+            <option value="Rain">Rain</option>
+            <option value="Light_Intensity">Light Intensity</option>
+        </select> 
+        <br><br>
+        <input type="checkbox" class="data[]" value="MAX" name="data[]" checked>Maximum
+        <input type="checkbox" class="data[]" value="MIN" name="data[]">Minimum
+        <input type="checkbox" class="data[]" name="data[]" value="AVG">Average <br><br><br>     
+        <input id="submit" type="submit" value="Submit">
+        </center>
+        </form>
+        <center><div id="google_translate_element"></div></center>
+        <br>
+        <center>Click Here to toggle:<p style="background-color: white; width: 100px;"><a href="log.html">With AJAX</a></p><p style="background-color: white; width: 100px;"><a href="compare.html">Compare Two Days</a></p></center>
+    </div>
+    <script>
+    function myFunction(obj){
+            var min = $('#mindate').val();
+            var max = $('#maxdate').val();
+            var type = $('#type').val();
+            if($('#data1').is(':checked')){
+                var finddata = "Maximum";
+            }else if($('#data2').is(':checked')){
+                var finddata = "Minimum";
+            }else if($('#data3').is(':checked')){
+                var finddata = "Average";
+            }
+            if(min == ''){
+                alert("Enter From Date");
+                return false;
+            }else if(max == ''){
+                alert("Enter To Date")
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <script type="text/javascript">
+        function changebackground(sel){
+        if(sel.value == "Temperature"){
+        document.getElementById("main").style.background = "url('img/2.jpg')";
+        document.getElementById("main").style.backgroundRepeat = "no-repeat";
+        document.getElementById("main").style.backgroundSize = "cover";
+        document.getElementById("main").style.backgroundAttachment = "fixed";
+        document.getElementById("main").style.backgroundPosition = "center";
+        }
+        if(sel.value == "Relative_Humidity"){
+        document.getElementById("main").style.background = "url('img/1.jpeg')";
+        document.getElementById("main").style.backgroundRepeat = "no-repeat";
+        document.getElementById("main").style.backgroundSize = "cover";
+        document.getElementById("main").style.backgroundAttachment = "fixed";
+        document.getElementById("main").style.backgroundPosition = "center";
+        }
+        if(sel.value == "Pressure"){
+        document.getElementById("main").style.background = "url('img/3_3.jpg')";
+        document.getElementById("main").style.backgroundRepeat = "no-repeat";
+        document.getElementById("main").style.backgroundSize = "cover";
+        document.getElementById("main").style.backgroundAttachment = "fixed";
+        document.getElementById("main").style.backgroundPosition = "center";
+        }
+        if(sel.value == "Rain"){
+        document.getElementById("main").style.background = "url('img/4.jpg')";
+        document.getElementById("main").style.backgroundRepeat = "no-repeat";
+        document.getElementById("main").style.backgroundSize = "cover";
+        document.getElementById("main").style.backgroundAttachment = "fixed";
+        document.getElementById("main").style.backgroundPosition = "center";
+        }
+        if(sel.value == "Light_Intensity"){
+        document.getElementById("main").style.background = "url('img/5_4.jpg')";
+        document.getElementById("main").style.backgroundRepeat = "no-repeat";
+        document.getElementById("main").style.backgroundSize = "cover";
+        document.getElementById("main").style.backgroundAttachment = "fixed";
+        document.getElementById("main").style.backgroundPosition = "center";
+        }
+    }
+    </script>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+</body>
+</html>

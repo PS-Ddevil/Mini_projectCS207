@@ -1,0 +1,29 @@
+#header
+{
+font-family: 'Spicy Rice', cursive;
+font-size: 50px;
+}
+#a1
+{
+font-family: 'Krub', sans-serif;
+font-size: 30px;
+}
+#a2
+{
+font-family: 'Krub', sans-serif;
+}
+body
+{  
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
